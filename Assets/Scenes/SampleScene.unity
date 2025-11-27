@@ -4431,6 +4431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505936421}
+  - component: {fileID: 505936422}
   m_Layer: 0
   m_Name: Luckyblock
   m_TagString: Untagged
@@ -4457,6 +4458,27 @@ Transform:
   - {fileID: 1979538068}
   m_Father: {fileID: 758451537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &505936422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505936420}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &506557713
 GameObject:
   m_ObjectHideFlags: 0
@@ -11786,6 +11808,7 @@ GameObject:
   - component: {fileID: 1352365085}
   - component: {fileID: 1352365084}
   - component: {fileID: 1352365088}
+  - component: {fileID: 1352365089}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -11898,6 +11921,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoTiling
   textureToMeshRatio: 1
+--- !u!65 &1352365089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352365083}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1370250542
 GameObject:
   m_ObjectHideFlags: 0
@@ -12894,6 +12938,7 @@ GameObject:
   - component: {fileID: 1491638090}
   - component: {fileID: 1491638089}
   - component: {fileID: 1491638088}
+  - component: {fileID: 1491638092}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -12995,6 +13040,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 251689684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1491638092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491638087}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1500766901
 GameObject:
   m_ObjectHideFlags: 0
