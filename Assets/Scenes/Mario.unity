@@ -397,6 +397,8 @@ MonoBehaviour:
   points: 1
   newMaterial: {fileID: 2100000, guid: 38bcd83b554229d4b8a128ec9c5e6a18, type: 2}
   changeOnlyOnce: 1
+  bottomChildName: 
+  bottomMaterialIndex: -1
 --- !u!1 &31923960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,6 +3080,8 @@ MonoBehaviour:
   points: 1
   newMaterial: {fileID: 2100000, guid: 38bcd83b554229d4b8a128ec9c5e6a18, type: 2}
   changeOnlyOnce: 1
+  bottomChildName: 
+  bottomMaterialIndex: -1
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -6836,6 +6840,8 @@ MonoBehaviour:
   points: 1
   newMaterial: {fileID: 0}
   changeOnlyOnce: 1
+  bottomChildName: 
+  bottomMaterialIndex: -1
 --- !u!1 &758464440
 GameObject:
   m_ObjectHideFlags: 0
@@ -11705,6 +11711,8 @@ MonoBehaviour:
   points: 1
   newMaterial: {fileID: 2100000, guid: 38bcd83b554229d4b8a128ec9c5e6a18, type: 2}
   changeOnlyOnce: 1
+  bottomChildName: 
+  bottomMaterialIndex: -1
 --- !u!1 &1282712516
 GameObject:
   m_ObjectHideFlags: 0
@@ -11943,6 +11951,8 @@ MonoBehaviour:
   points: 1
   newMaterial: {fileID: 2100000, guid: 38bcd83b554229d4b8a128ec9c5e6a18, type: 2}
   changeOnlyOnce: 1
+  bottomChildName: 
+  bottomMaterialIndex: -1
 --- !u!1 &1296073999
 GameObject:
   m_ObjectHideFlags: 0
@@ -15992,6 +16002,8 @@ MonoBehaviour:
   points: 1
   newMaterial: {fileID: 2100000, guid: 38bcd83b554229d4b8a128ec9c5e6a18, type: 2}
   changeOnlyOnce: 1
+  bottomChildName: 
+  bottomMaterialIndex: -1
 --- !u!1 &1726297797
 GameObject:
   m_ObjectHideFlags: 0
@@ -16691,6 +16703,8 @@ MonoBehaviour:
   points: 1
   newMaterial: {fileID: 2100000, guid: 38bcd83b554229d4b8a128ec9c5e6a18, type: 2}
   changeOnlyOnce: 1
+  bottomChildName: 
+  bottomMaterialIndex: -1
 --- !u!1 &1786984506
 GameObject:
   m_ObjectHideFlags: 0
