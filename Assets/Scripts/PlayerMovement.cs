@@ -58,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
     // Fisika (langsung set velocity agar bergerak konstan)
     void FixedUpdate()
     {
+        if (rb.isKinematic) return;
+
         MovePlayer();
 
         if (jumpRequest)
