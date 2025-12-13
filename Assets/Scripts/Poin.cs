@@ -30,7 +30,7 @@ public class Poin : MonoBehaviour
         Debug.Log("Sundulan Maut! Poin Bertambah.");
 
         // Tambah Poin 
-        PointsManager.Instance?.AddPoints(points);
+        PointManager.Instance?.AddPoints(points);
 
         ApplyMaterialToParent(parentBlock);
 
