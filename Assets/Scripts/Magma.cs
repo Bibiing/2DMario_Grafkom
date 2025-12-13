@@ -7,11 +7,14 @@ public class Magma : MonoBehaviour
     [Tooltip("Tag that identifies the player GameObject.")]
     public string playerTag = "Player";
 
-    [Tooltip("Name of the Game Over scene to load. If empty, current scene will be reloaded.")]
-    public string gameOverSceneName = "GameOver";
+    [Tooltip("Optional UI panel (Canvas) to show when player dies. Assign a panel with Retry and Main Menu buttons.")]
+    public GameObject gameOverUIPanel;
 
-    [Tooltip("Delay in seconds before loading the Game Over scene (gives time for death animation).")]
-    public float delayBeforeGameOver = 0.5f;
+    [Tooltip("Name of the Main Menu scene to load. If empty, scene index 0 will be loaded.")]
+    public string mainMenuSceneName = "MainMenu";
+
+    [Tooltip("Delay in seconds before showing the Game Over UI (gives time for death animation).")]
+    public float delayBeforeGameOverUI = 0.5f;
 
     [Tooltip("If true, the magma will only trigger once.")]
     public bool triggerOnce = true;
@@ -36,11 +39,11 @@ public class Magma : MonoBehaviour
 
         triggered = true;
 
-        // Try to notify player script(s) about death (optional receiver)
+        // Notify player script(s) about death (optional)
         other.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
         other.SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
 
-        // Try to disable common movement components so player stops moving immediately
+        // Stop player movement and interactions
         var rb3 = other.GetComponent<Rigidbody>();
         if (rb3 != null)
         {
@@ -57,31 +60,63 @@ public class Magma : MonoBehaviour
         if (animator != null)
             animator.enabled = false;
 
-        // Optionally disable player's colliders to avoid further physics interactions
         foreach (var c in other.GetComponentsInChildren<Collider>())
             c.enabled = false;
         foreach (var c2 in other.GetComponentsInChildren<Collider2D>())
             c2.enabled = false;
 
-        StartCoroutine(TransitionToGameOver());
+        StartCoroutine(ShowGameOverUI());
     }
 
-    IEnumerator TransitionToGameOver()
+    IEnumerator ShowGameOverUI()
     {
-        yield return new WaitForSeconds(Mathf.Max(0f, delayBeforeGameOver));
+        yield return new WaitForSeconds(Mathf.Max(0f, delayBeforeGameOverUI));
 
-        if (!string.IsNullOrEmpty(gameOverSceneName))
+        // If a UI panel is provided, show it and pause the game.
+        if (gameOverUIPanel != null)
         {
-            // If the named scene is not added to build settings, this will throw in editor/runtime.
-            // Fallback to reloading current scene.
-            if (Application.CanStreamedLevelBeLoaded(gameOverSceneName))
-            {
-                SceneManager.LoadScene(gameOverSceneName);
-                yield break;
-            }
+            gameOverUIPanel.SetActive(true);
+
+            // Make sure cursor is visible/unlocked for UI navigation
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+            // Pause gameplay (UI buttons should operate on unscaled time or call scene loads which reset timeScale)
+            Time.timeScale = 0f;
+
+            yield break; // do not auto-reload scene
         }
 
-        // fallback: reload current scene
+        // Fallback: if no UI, reload current scene (preserves previous behaviour)
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Public UI callbacks - hook these to your Retry and Main Menu buttons.
+    public void OnRetry()
+    {
+        // Restore time scale in case it was paused
+        Time.timeScale = 1f;
+        // Reload current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnMainMenu()
+    {
+        Time.timeScale = 1f;
+        if (!string.IsNullOrEmpty(mainMenuSceneName) && Application.CanStreamedLevelBeLoaded(mainMenuSceneName))
+        {
+            SceneManager.LoadScene(mainMenuSceneName);
+            return;
+        }
+
+        // Fallback to scene index 0
+        SceneManager.LoadScene(0);
+    }
+
+    // Optional: allow other scripts to cancel the pending trigger (useful for level editors/tests)
+    public void ResetTrigger()
+    {
+        triggered = false;
     }
 }
